@@ -10,26 +10,15 @@ package solace;
  */
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.*;    // For JFrame, JTextField, JPasswordField, JButton, JOptionPane
-import java.awt.event.*;  // For ActionListener and ActionEvent
+import javax.swing.*;
+import java.awt.event.*;
 
 public class Login extends javax.swing.JFrame {
+private String defaultEmail = "admin@gmail.com";
+private String defaultPassword = "12345678";
 
-    public class UserData {
-    public static String email;      // Store the email entered during SignUp
-    public static String password;   // Store the password entered during SignUp
-}
-    
-private String enteredEmail;
-    private String enteredPassword;
-    // Declare components for the login form (email and password fields)
-    private JTextField emailLogInField;
-    private JPasswordField passLogInField;
-    
     public Login() {
         initComponents();
-
-
     }
 
     /**
@@ -49,24 +38,30 @@ private String enteredEmail;
         jLabel4 = new javax.swing.JLabel();
         signUp = new javax.swing.JButton();
         LogIn = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("MS UI Gothic", 0, 48)); // NOI18N
-        jLabel1.setText("Log in to your Account");
+        jLabel1.setFont(new java.awt.Font("MS UI Gothic", 0, 68)); // NOI18N
+        jLabel1.setText("LOGIN");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 140, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("MS UI Gothic", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("MS UI Gothic", 0, 48)); // NOI18N
         jLabel2.setText("Email:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, -1, -1));
 
-        emailLogIn.setFont(new java.awt.Font("MS UI Gothic", 0, 36)); // NOI18N
+        emailLogIn.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         emailLogIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailLogInActionPerformed(evt);
             }
         });
+        getContentPane().add(emailLogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, 397, -1));
 
-        jLabel3.setFont(new java.awt.Font("MS UI Gothic", 0, 36)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("MS UI Gothic", 0, 48)); // NOI18N
         jLabel3.setText("Password:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, -1, -1));
 
         passLogIn.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         passLogIn.addActionListener(new java.awt.event.ActionListener() {
@@ -74,105 +69,77 @@ private String enteredEmail;
                 passLogInActionPerformed(evt);
             }
         });
+        getContentPane().add(passLogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 397, 49));
 
-        jLabel4.setFont(new java.awt.Font("MS UI Gothic", 0, 24)); // NOI18N
-        jLabel4.setText("Don't have an account?");
+        jLabel4.setFont(new java.awt.Font("MS UI Gothic", 0, 36)); // NOI18N
+        jLabel4.setText("Forgot password?");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 560, -1, -1));
 
         signUp.setBackground(new java.awt.Color(0, 102, 255));
-        signUp.setFont(new java.awt.Font("MS UI Gothic", 0, 24)); // NOI18N
+        signUp.setFont(new java.awt.Font("MS UI Gothic", 0, 36)); // NOI18N
         signUp.setForeground(new java.awt.Color(255, 255, 255));
-        signUp.setText("Sign Up!");
+        signUp.setText("Reset");
         signUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signUpActionPerformed(evt);
             }
         });
+        getContentPane().add(signUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 550, -1, -1));
 
-        LogIn.setFont(new java.awt.Font("MS UI Gothic", 0, 24)); // NOI18N
+        LogIn.setFont(new java.awt.Font("MS UI Gothic", 0, 36)); // NOI18N
         LogIn.setText("Log In");
         LogIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LogInActionPerformed(evt);
             }
         });
+        getContentPane().add(LogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 680, 225, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(322, 322, 322)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(emailLogIn, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(passLogIn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(signUp))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(66, 66, 66)
-                                .addComponent(LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(359, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(jLabel1)
-                .addGap(69, 69, 69)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(emailLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(passLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(signUp))
-                .addGap(94, 94, 94)
-                .addComponent(LogIn)
-                .addContainerGap(121, Short.MAX_VALUE))
-        );
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Huawei Matebook\\Downloads\\462574788-27900747346205854-1976.png")); // NOI18N
+        jLabel5.setText("jLabel5");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1470, 830));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     
     private void signUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpActionPerformed
-        SignUp sinup = new SignUp();  // Create a new instance of the SignUp frame
-        sinup.setVisible(true);  // Make the SignUp frame visible
-        
-        this.dispose();
+String newPassword = JOptionPane.showInputDialog(this, "Enter your new password:", "Forgot Password", JOptionPane.PLAIN_MESSAGE);
+
+    if (newPassword != null && !newPassword.trim().isEmpty()) {
+        if (newPassword.length() >= 8) {
+            defaultPassword = newPassword;
+            JOptionPane.showMessageDialog(this, "Password updated successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Password must be at least 8 characters long.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    } else {
+        JOptionPane.showMessageDialog(this, "Password update canceled.", "Info", JOptionPane.INFORMATION_MESSAGE);
+    }
     }//GEN-LAST:event_signUpActionPerformed
 
     private void emailLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailLogInActionPerformed
-//this should be matching to the email inputed to the register one
-    String enteredEmail = emailLogInField.getText();  // Assuming emailLogInField is the login email text field
 
     }//GEN-LAST:event_emailLogInActionPerformed
 
     private void passLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passLogInActionPerformed
-//this should be matching to the password inputed to the register one
-    String enteredPassword = new String(passLogInField.getPassword());  // Assuming passLogInField is the password field
+
      }//GEN-LAST:event_passLogInActionPerformed
 
     private void LogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInActionPerformed
-//this will only work if the data inserted is matching to the sign up one    
-if (emailLogInField.getText().equals(UserData.email) && new String(passLogInField.getPassword()).equals(UserData.password)) {
-        JOptionPane.showMessageDialog(this, "Login successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
-        // Proceed to the next window or main screen
+  String enteredEmail = emailLogIn.getText(); // Assuming emailLogIn is a JTextField
+    String enteredPassword = passLogIn.getText(); // Assuming passLogIn is a JPasswordField
+
+    if (enteredEmail.equals(defaultEmail) && enteredPassword.equals(defaultPassword)) {
+        JOptionPane.showMessageDialog(this, "Login Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+        DashboardOP DOP = new DashboardOP();
+        DOP.setVisible(true);
+        this.dispose();
     } else {
-        JOptionPane.showMessageDialog(this, "Invalid email or password.", "Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Invalid Email or Password!", "Error", JOptionPane.ERROR_MESSAGE);
     }
+
      }//GEN-LAST:event_LogInActionPerformed
 
     /**
@@ -180,22 +147,19 @@ if (emailLogInField.getText().equals(UserData.email) && new String(passLogInFiel
      */
 public static void main(String args[]) {
     try {
-        // Set the Look and Feel to Nimbus if it's available
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
             if ("Nimbus".equals(info.getName())) {
                 javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                break;  // If Nimbus is available, use it
+                break;
             }
         }
     } catch (Exception ex) {
-        // Log any exceptions related to setting the Look and Feel
         java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
 
-    // Use EventQueue to safely create and display the Login frame
     java.awt.EventQueue.invokeLater(new Runnable() {
         public void run() {
-            new Login().setVisible(true); // Make sure Login has a no-argument constructor
+            new Login().setVisible(true);
         }
     });
 }
@@ -206,6 +170,7 @@ public static void main(String args[]) {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPasswordField passLogIn;
     private javax.swing.JButton signUp;
     // End of variables declaration//GEN-END:variables

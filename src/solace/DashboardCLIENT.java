@@ -33,11 +33,17 @@ public class DashboardCLIENT extends javax.swing.JFrame {
         subscribeButton = new javax.swing.JButton();
         logOut = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        homeButton1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel1.setText("Hello there, [name]  !");
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Hello there, Guest !");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(577, 232, -1, -1));
 
         helpButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         helpButton.setText("Help/Feedback");
@@ -46,17 +52,20 @@ public class DashboardCLIENT extends javax.swing.JFrame {
                 helpButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(helpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 658, 261, 55));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Huawei Matebook\\Desktop\\Solace\\logo2.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/solace/Images/1.png"))); // NOI18N
         jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 6, 354, 370));
 
         homeButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        homeButton.setText("Home");
+        homeButton.setText("Profile");
         homeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 homeButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(homeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(467, 657, 242, -1));
 
         subscribeButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         subscribeButton.setText("Subscribe");
@@ -65,6 +74,7 @@ public class DashboardCLIENT extends javax.swing.JFrame {
                 subscribeButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(subscribeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(792, 657, 242, -1));
 
         logOut.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         logOut.setText("Log out");
@@ -73,60 +83,32 @@ public class DashboardCLIENT extends javax.swing.JFrame {
                 logOutActionPerformed(evt);
             }
         });
+        getContentPane().add(logOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1118, 657, 242, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 120)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("DASHBOARD");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 69, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(165, 165, 165)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(helpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86)
-                        .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(83, 83, 83)
-                        .addComponent(subscribeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84)
-                        .addComponent(logOut, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(173, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(459, Short.MAX_VALUE)
-                    .addComponent(jLabel2)
-                    .addGap(370, 370, 370)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(262, 262, 262)
-                        .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 331, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(helpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(homeButton)
-                    .addComponent(subscribeButton)
-                    .addComponent(logOut))
-                .addGap(113, 113, 113))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(69, 69, 69)
-                    .addComponent(jLabel2)
-                    .addContainerGap(596, Short.MAX_VALUE)))
-        );
+        homeButton1.setBackground(new java.awt.Color(206, 120, 84));
+        homeButton1.setFont(new java.awt.Font("Vivaldi", 1, 48)); // NOI18N
+        homeButton1.setForeground(new java.awt.Color(255, 255, 255));
+        homeButton1.setText("Lets go!");
+        homeButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(homeButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(639, 500, 242, -1));
+
+        jLabel4.setFont(new java.awt.Font("Script MT Bold", 0, 48)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("\"Escape, Relax, and Dive In – Where Luxury Meets Leisure!\"       ");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 429, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/solace/Solace/bg color.png"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1560, 830));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -139,6 +121,9 @@ public class DashboardCLIENT extends javax.swing.JFrame {
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         // TODO add your handling code here:
+        ProfileC p = new ProfileC(); 
+    p.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void subscribeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subscribeButtonActionPerformed
@@ -152,6 +137,10 @@ public class DashboardCLIENT extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_logOutActionPerformed
+
+    private void homeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_homeButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,9 +180,12 @@ public class DashboardCLIENT extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton helpButton;
     private javax.swing.JButton homeButton;
+    private javax.swing.JButton homeButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JButton logOut;
     private javax.swing.JButton subscribeButton;
     // End of variables declaration//GEN-END:variables

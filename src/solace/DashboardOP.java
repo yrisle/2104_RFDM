@@ -8,6 +8,7 @@ package solace;
  *
  * @author Huawei Matebook
  */
+
 public class DashboardOP extends javax.swing.JFrame {
 
     /**
@@ -31,7 +32,7 @@ public class DashboardOP extends javax.swing.JFrame {
         homeButton = new javax.swing.JButton();
         subscribeButton = new javax.swing.JButton();
         logOut = new javax.swing.JButton();
-        homeButton1 = new javax.swing.JButton();
+        feedbackOP = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,11 +66,11 @@ public class DashboardOP extends javax.swing.JFrame {
             }
         });
 
-        homeButton1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        homeButton1.setText("Feedbacks");
-        homeButton1.addActionListener(new java.awt.event.ActionListener() {
+        feedbackOP.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        feedbackOP.setText("Feedbacks");
+        feedbackOP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homeButton1ActionPerformed(evt);
+                feedbackOPActionPerformed(evt);
             }
         });
 
@@ -84,7 +85,7 @@ public class DashboardOP extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(153, Short.MAX_VALUE)
-                .addComponent(homeButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(feedbackOP, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(94, 94, 94)
                 .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(83, 83, 83)
@@ -106,7 +107,7 @@ public class DashboardOP extends javax.swing.JFrame {
                     .addComponent(homeButton)
                     .addComponent(subscribeButton)
                     .addComponent(logOut)
-                    .addComponent(homeButton1))
+                    .addComponent(feedbackOP))
                 .addContainerGap(456, Short.MAX_VALUE))
         );
 
@@ -119,9 +120,7 @@ public class DashboardOP extends javax.swing.JFrame {
 
     private void subscribeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subscribeButtonActionPerformed
         // TODO add your handling code here:
-        DC_Premium subs = new DC_Premium();
-        subs.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_subscribeButtonActionPerformed
 
     private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
@@ -129,9 +128,12 @@ public class DashboardOP extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_logOutActionPerformed
 
-    private void homeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButton1ActionPerformed
+    private void feedbackOPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_feedbackOPActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_homeButton1ActionPerformed
+        DOP_Feedback feed = new DOP_Feedback();
+        feed.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_feedbackOPActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,8 +171,8 @@ public class DashboardOP extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton feedbackOP;
     private javax.swing.JButton homeButton;
-    private javax.swing.JButton homeButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JButton logOut;

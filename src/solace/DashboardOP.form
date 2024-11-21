@@ -31,7 +31,7 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="153" max="32767" attributes="0"/>
-              <Component id="homeButton1" min="-2" pref="242" max="-2" attributes="0"/>
+              <Component id="feedbackOP" min="-2" pref="242" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
               <Component id="homeButton" min="-2" pref="242" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
@@ -57,7 +57,7 @@
                   <Component id="homeButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="subscribeButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="logOut" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="homeButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="feedbackOP" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="456" max="32767" attributes="0"/>
           </Group>
@@ -114,7 +114,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logOutActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="homeButton1">
+    <Component class="javax.swing.JButton" name="feedbackOP">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="36" style="0"/>
@@ -122,7 +122,7 @@
         <Property name="text" type="java.lang.String" value="Feedbacks"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="homeButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="feedbackOPActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
