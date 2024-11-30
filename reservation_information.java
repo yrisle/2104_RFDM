@@ -203,24 +203,20 @@ public class reservation_information extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnENTERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnENTERActionPerformed
-                                     
-    // Get text from the fields
-    
-
-    // Check if required fields are empty
+   
 
         String Name = namec.getText().trim();
         String Email = emailc.getText().trim();
         String Age = agec.getText().trim();
         String Gender = genderc.getText().trim();
 
-        // Check if required fields are empty
+     
         if (Name.isEmpty() || Email.isEmpty() || Age.isEmpty() || Gender.isEmpty()) {
             JOptionPane.showMessageDialog(this, "All fields are required!");
-            return; // Exit the method if any field is empty
+            return;
         }
 
-        // Establish connection
+  
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -229,7 +225,7 @@ public class reservation_information extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/databaseresort", "root", "");
 
-            // Insert new client information into the database
+          
             ps = con.prepareStatement("INSERT INTO clients(client_name, email, age, gender) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, Name);
             ps.setString(2, Email);
@@ -237,30 +233,30 @@ public class reservation_information extends javax.swing.JFrame {
             ps.setString(4, Gender);
             ps.executeUpdate();
 
-            // Fetch the generated keys (client_id)
+           
             rs = ps.getGeneratedKeys();
             if (rs.next()) {
-                int generatedId = rs.getInt(1); // Get the generated ID
-                cbCID.addItem(String.valueOf(generatedId)); // Add the new ID to the combo box
+                int generatedId = rs.getInt(1); 
+                cbCID.addItem(String.valueOf(generatedId)); 
             }
 
-            // Optionally show a success message
+
             JOptionPane.showMessageDialog(this, "Reservation made successfully!");
 
-            // Clear the input fields after successful reservation
+           
             namec.setText("");
             emailc.setText("");
             agec.setText("");
             genderc.setText("");
 
-            // Update the table with the latest data from the database
+   
             updateTableData();
 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "An error occurred while saving data: " + ex.getMessage());
             Logger.getLogger(reservation_information.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            // Close resources
+       
             try {
                 if (rs != null) rs.close();
                 if (ps != null) ps.close();
@@ -269,25 +265,22 @@ public class reservation_information extends javax.swing.JFrame {
                 e.printStackTrace();
             }
         }
-    }//GEN-LAST:event_btnENTERActionPerformed
+    }
     private void updateTableData() {
-    // Clear the existing rows
+
     DefaultTableModel model = (DefaultTableModel) clients_table.getModel();
-    model.setRowCount(0);  // Remove all rows from the table
-    
-    // Fetch the data from the database and add it to the table
+    model.setRowCount(0);  
+  
     Connection con = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
     try {
-        // Establish connection
         con = DriverManager.getConnection("jdbc:mysql://localhost/databaseresort", "root", "");
         
-        // Fetch the data from the 'clients' table
+    
         ps = con.prepareStatement("SELECT client_id, client_name, email, age, gender FROM clients");
         rs = ps.executeQuery();
-        
-        // Populate the table with the fetched data
+      
         while (rs.next()) {
             String id = rs.getString("client_id");
             String name = rs.getString("client_name");
@@ -295,7 +288,6 @@ public class reservation_information extends javax.swing.JFrame {
             String age = rs.getString("age");
             String gender = rs.getString("gender");
             
-            // Add a new row to the table
             model.addRow(new Object[] {id, name, email, age, gender});
         }
     } catch (Exception ex) {
@@ -327,7 +319,7 @@ public class reservation_information extends javax.swing.JFrame {
             rs = stmt.executeQuery(query);
 
             model.setRowCount(0);
-            cbCID.removeAllItems(); // Clear previous items
+            cbCID.removeAllItems(); 
 
             while (rs.next()) {
                 String id = rs.getString("client_id");
@@ -337,8 +329,7 @@ public class reservation_information extends javax.swing.JFrame {
                 String gender = rs.getString("gender");
 
                 model.addRow(new Object[] { id, name, email, age, gender });
-                cbCID.addItem(id); // Add client_id to the combo box
-            }
+                cbCID.addItem(id); 
 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "An error occurred while fetching data: " + ex.getMessage());
@@ -354,35 +345,32 @@ public class reservation_information extends javax.swing.JFrame {
         }
     }
 
-    private void emailcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailcActionPerformed
+    private void emailcActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailcActionPerformed
+    }
 
-    private void agecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agecActionPerformed
+    private void agecActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }//GEN-LAST:event_agecActionPerformed
-
-    private void gendercActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gendercActionPerformed
+    }
+    private void gendercActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }//GEN-LAST:event_gendercActionPerformed
-
-    private void namecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namecActionPerformed
+    }
+    private void namecActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }//GEN-LAST:event_namecActionPerformed
+    }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         DashboardOP Dsh = new DashboardOP();
         Dsh.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }
 
-    private void go_toReserveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_go_toReserveActionPerformed
+    private void go_toReserveActionPerformed(java.awt.event.ActionEvent evt) {
         String selectedId = (String) cbCID.getSelectedItem();
-        String clientName = ""; // Variable to hold the client's name
-
+        String clientName = "";
         if (selectedId != null) {
-            // Fetch the client's name from the database based on the selected client_id
+            
             Connection con = null;
             PreparedStatement ps = null;
             ResultSet rs = null;
@@ -411,11 +399,11 @@ public class reservation_information extends javax.swing.JFrame {
             }
         }
 
-        // Create and show the list_offering frame, passing the client's name
+       
         list_offering lo = new list_offering();
-        lo.setName(clientName); // Set the client's name in the list_offering frame
+        lo.setName(clientName); 
         lo.setVisible(true);
-    }//GEN-LAST:event_go_toReserveActionPerformed
+    }
 
     /**
      * @param args the command line arguments
